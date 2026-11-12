@@ -3,122 +3,58 @@
 > *"Born to dilly dally, forced to fight fascists."*  
 > — Tender Hearts. Unruly Minds.
 
-![BKF Radical Folio Artwork](assets/images/hero.png)
+![BKF Radical Folio Full Design](assets/images/figma-full-design.png)
 
-An illustrated anti-fascist literary landing page sharing BKF's radical reading canon, key texts, and ideas through tactile broadsheet-inspired design.
-
-Rooted in **Iraqi modernism**, **radical tenderness** (*الحنان فعل مقاومة*), and an uncompromising refusal of tyranny.
+Official repository for the **BKF Radical Folio Landing Page**, faithfully imported from the original Figma design (`BKF Radical Folio Landing Page`).
 
 ---
 
-## ✦ Table of Contents
+## ✦ Overview & Sections
 
-- [The Story & Ethos](#the-story--ethos)
-- [Design Identity & Broadsheet Aesthetics](#design-identity--broadsheet-aesthetics)
-- [Key Features](#key-features)
-- [Typography & Color Palette](#typography--color-palette)
-- [Reading Canon](#reading-canon)
-- [Project Structure](#project-structure)
-- [Local Development](#local-development)
-- [Deployment](#deployment)
-- [License](#license)
+The landing page is designed as an illustrated broadsheet folio celebrating an independent experiment in togetherness, radical literature, and resistance:
 
----
+### 1. Masthead & Hero Broadside
+- **Masthead:** `AN INDEPENDENT EXPERIMENT IN TOGETHERNESS` / `VOL. I · A LIVING FOLIO`
+- **Eyebrow:** `— TENDER HEARTS. UNRULY MINDS. —`
+- **Display Title:** `Born to dilly dally, forced to fight fascists.`
+- **Marginalia:**
+  - `Fig. 01: No kings. No masters. Only each other. ⚡`
+  - `Tenderness is a radical act. الحنان فعل مقاومة`
+- **Central Linocut Tableau:** Featuring the 4 animal comrades (scholar rabbit, warrior rabbit with samovar spear, mouse with star book, squirrel in newsboy cap).
+- **Caption & Principles:** `THE SMALL & THE STEADFAST, ASSEMBLED.` / *"An experimental commons rooted in Iraqi modernism, radical tenderness, and an uncompromising refusal of tyranny."*
+- **Interactive Controls:** Ambient stillness tone & aphorism rotator.
 
-## The Story & Ethos
+### 2. The Reading Room — 01 / The Literature Canon ("The radical syllabus.")
+Interactive broadsheet table navigating the literature canon across two leaves:
+- **Leaf 01:**
+  - **I. Emily Dickinson:** *Lad of Athens, faithful be* — *"Lad of Athens, faithful be To Thyself, And Mystery— All the rest is Perjury—"*
+  - **II. Jacques Lacan & Slavoj Žižek:** *Fetishistic Disavowal* (تميمة الإنكار) — *"I know very well, yet nonetheless I act as if I do not."*
+  - **III. William Butler Yeats:** *Lapis Lazuli (Tragic Joy)* — *"All things fall and are built again, And those that build them again are gay."*
+- **Leaf 02:**
+  - **IV. Sylvia Plath & Robert Frost:** *The Ontology of Meaning* — *"I took a deep breath and listened to the old brag of my heart: I am, I am, I am."*
+  - **V. Leonard Cohen (after Cavafy):** *Alexandra Leaving* — *"Say goodbye to the Alexandra that you are losing... as someone prepared long beforehand."*
 
-The **BKF Radical Folio** is an independent experiment in togetherness, published as an homage to the clandestine anti-fascist broadsheet presses, the teahouses (*chaikhanas*) of Baghdad, and the radical modernism of the 1951 Baghdad Modern Art Group (*جماعة بغداد للفن الحديث*).
-
-### The Four Animal Comrades
-Featured in the central linocut tableau:
-1. **The Scholar Rabbit:** Poring over open books with wire spectacles and stacked texts at its feet.
-2. **The Knight Rabbit:** Draped in a leaf-mantle with a golden star clasp, bearing a spear hoisted with a steaming samovar kettle.
-3. **The Field Mouse:** Sporting a peaked garrison cap, safeguarding the radical star manifesto.
-4. **The Sentry Squirrel:** Newsboy cap, grand curled tail, delivering broadsheets to the street.
-
----
-
-## Design Identity & Broadsheet Aesthetics
-
-The visual language reproduces the tactile warmth of a mid-century literary broadsheet:
-- **Paper Tone:** `#F6F4EE` (unbleached newsprint cotton ground).
-- **Ink:** `#1C2520` (organic dark forest-black ink).
-- **Accent:** `#D4972D` (8-pointed Ishtar star / Mesopotamian octagram amber).
-- **Marginalia:** Classical 3-column broadside grid with marginal notes, figures, and bilingual English/Arabic calligraphy.
+### 3. 02 / The Conversation Continues
+- Dark forest green invitation section:
+  - *"The next word could be yours."*
+  - Letter dispatch card to `info@bunny.com`.
 
 ---
 
-## Key Features
+## ✦ Project Assets
 
-- **Interactive Ambient Stillness:** Pure Web Audio API synthesized chord tone simulating teahouse warmth and harmonic calmness (`A moment of stillness`).
-- **Aphorism Rotator:** Cycles through the living folio's core mantras (`Gather again ↺`).
-- **Curated Reading Canon:** Interactive topic filter (Iraqi Modernism, Free Verse, Manifestos, Underground Print).
-- **Excerpt Reader Modal:** Accessible reading drawer with historical notes and quotes from Jewad Selim, Badr Shakir al-Sayyab, Nazik al-Malaika, and the collective.
-- **Print as Broadsheet (A3 / Tabloid):** Specialized `@media print` stylesheet that strips browser UI and reformats the page into a physical poster.
-- **Original Source Included:** Houses the original `BKF-Radical-Folio-Landing-Page.fig` for designers.
+- `assets/images/figma-full-design.png`: High-resolution full master export (2244 × 4096).
+- `assets/images/characters_clean.png`: Trimmed character tableau illustration.
+- `BKF-Radical-Folio-Landing-Page.fig`: Original Figma `.fig` file archive.
 
 ---
 
-## Typography & Color Palette
+## ✦ Development & Deployment
 
-| Token | Family / Value | Usage |
-| :--- | :--- | :--- |
-| **Display Headline** | Playfair Display (Bold & Italic) | Main hero title |
-| **Editorial Body** | Newsreader (Serif) | Broadsheet body copy & excerpts |
-| **Arabic Calligraphy** | Amiri (Naskh) | Arabic phrases & poetry |
-| **Masthead & Meta** | Space Mono | Folio volume, dates, captions |
-
----
-
-## Project Structure
-
-```text
-bkf-radical-folio/
-├── assets/
-│   └── images/
-│       ├── hero.png              # 2560x1920 linocut master artwork
-│       └── favicon.svg           # 8-pointed star vector favicon
-├── css/
-│   └── style.css                 # Broadsheet stylesheet & print styles
-├── js/
-│   └── main.js                   # Web Audio ambient player, filters & modal
-├── .github/
-│   └── workflows/
-│       └── deploy.yml            # Automated GitHub Pages workflow
-├── BKF-Radical-Folio-Landing-Page.fig # Original Figma file
-├── index.html                    # Semantic, self-contained landing page
-├── package.json                  # Optional local server scripts
-└── README.md
-```
-
----
-
-## Local Development
-
-You can open `index.html` directly in any web browser, or serve it locally:
-
+To run locally:
 ```bash
-# Using Python
 python3 -m http.server 8080
-
-# Or using Node.js / npx
-npx serve .
 ```
+Then visit [http://localhost:8080](http://localhost:8080).
 
-Open [http://localhost:8080](http://localhost:8080) in your browser.
-
----
-
-## Deployment to GitHub Pages
-
-1. In your GitHub repository, navigate to **Settings** &rarr; **Pages**.
-2. Under **Build and deployment**, choose **GitHub Actions** (or select the `main` branch with `/` root).
-3. The site will be published at:  
-   `https://<username>.github.io/bkf-radical-folio/`
-
----
-
-## License
-
-Anti-Copyright / Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0).  
-*Reproduction, printing, pasting, and distribution are warmly encouraged.*
+Automatically deployed to GitHub Pages via `.github/workflows/deploy.yml`.

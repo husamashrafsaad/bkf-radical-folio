@@ -1,0 +1,19 @@
+{
+  "name": "bkf-radical-folio",
+  "version": "1.0.0",
+  "description": "BKF Radical Folio — An illustrated anti-fascist literary landing page",
+  "scripts": {
+    "dev": "npx serve .",
+    "start": "npx serve ."
+  },
+  "keywords": [
+    "broadsheet",
+    "literary",
+    "iraqi-modernism",
+    "anti-fascist",
+    "figma",
+    "design"
+  ],
+  "author": "BKF Collective",
+  "license": "CC-BY-NC-SA-4.0"
+}

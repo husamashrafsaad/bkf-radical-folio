@@ -1,15 +1,15 @@
-// BKF Radical Folio — Main Script
+// BKF Radical Folio — Main Script (Strictly supporting imported Figma UI)
 
 document.addEventListener('DOMContentLoaded', () => {
   initLeavesPagination();
-  initAudioStillness();
-  initGatherRotator();
+  initStillnessControl();
+  initGatherControl();
 });
 
-// 1. Leaf Pagination (Leaf 01: Emily Dickinson, Lacan & Žižek, Yeats | Leaf 02: Plath & Frost, Leonard Cohen)
+// 1. Leaf Pagination (Leaf 01: Dickinson, Lacan & Žižek, Yeats)
 function initLeavesPagination() {
-  const leaf01Rows = document.querySelectorAll('.leaf-01');
-  const leaf02Rows = document.querySelectorAll('.leaf-02');
+  const leaf01 = document.getElementById('leaf-01-view');
+  const leaf02 = document.getElementById('leaf-02-view');
   const btnPrev = document.getElementById('btn-prev-leaf');
   const btnNext = document.getElementById('btn-next-leaf');
   const num01 = document.getElementById('leaf-num-1');
@@ -22,20 +22,20 @@ function initLeavesPagination() {
     currentLeaf = leaf;
 
     if (leaf === 1) {
-      leaf01Rows.forEach(r => r.style.display = 'grid');
-      leaf02Rows.forEach(r => r.style.display = 'none');
-      num01.classList.add('active');
-      num02.classList.remove('active');
-      btnPrev.classList.add('disabled');
-      btnNext.classList.remove('disabled');
+      if (leaf01) leaf01.style.display = 'block';
+      if (leaf02) leaf02.style.display = 'none';
+      if (num01) num01.classList.add('active');
+      if (num02) num02.classList.remove('active');
+      if (btnPrev) btnPrev.classList.add('disabled');
+      if (btnNext) btnNext.classList.remove('disabled');
       if (leafLabel) leafLabel.textContent = 'LEAF 01 OF 02';
     } else {
-      leaf01Rows.forEach(r => r.style.display = 'none');
-      leaf02Rows.forEach(r => r.style.display = 'grid');
-      num01.classList.remove('active');
-      num02.classList.add('active');
-      btnPrev.classList.remove('disabled');
-      btnNext.classList.add('disabled');
+      if (leaf01) leaf01.style.display = 'none';
+      if (leaf02) leaf02.style.display = 'block';
+      if (num01) num01.classList.remove('active');
+      if (num02) num02.classList.add('active');
+      if (btnPrev) btnPrev.classList.remove('disabled');
+      if (btnNext) btnNext.classList.add('disabled');
       if (leafLabel) leafLabel.textContent = 'LEAF 02 OF 02';
     }
   }
@@ -54,95 +54,35 @@ function initLeavesPagination() {
       if (currentLeaf < 2) setLeaf(currentLeaf + 1);
     });
   }
-
-  // Initial state
-  setLeaf(1);
 }
 
-// 2. Audio Stillness Generator (Subtle calming ambient chord)
-let audioCtx = null;
-let isAudioPlaying = false;
-let ambientNodes = [];
-
-function initAudioStillness() {
+// 2. Stillness Control Toggle
+function initStillnessControl() {
   const btn = document.getElementById('btn-stillness');
   if (!btn) return;
 
+  let isStill = false;
   btn.addEventListener('click', () => {
-    if (!isAudioPlaying) {
-      startStillness();
-      btn.classList.add('active');
-      btn.textContent = '▶ A moment of stillness (playing)';
-    } else {
-      stopStillness();
-      btn.classList.remove('active');
-      btn.textContent = '⏸ A moment of stillness';
+    isStill = !isStill;
+    btn.classList.toggle('active', isStill);
+    const icon = btn.querySelector('.ctrl-icon');
+    if (icon) {
+      icon.textContent = isStill ? '▶' : '||';
     }
-    isAudioPlaying = !isAudioPlaying;
   });
 }
 
-function startStillness() {
-  try {
-    const AudioContext = window.AudioContext || window.webkitAudioContext;
-    if (!audioCtx) audioCtx = new AudioContext();
-    if (audioCtx.state === 'suspended') audioCtx.resume();
-
-    const masterGain = audioCtx.createGain();
-    masterGain.gain.setValueAtTime(0.06, audioCtx.currentTime);
-    masterGain.connect(audioCtx.destination);
-
-    // Harmonic chords
-    const freqs = [174.61, 220.00, 261.63, 349.23];
-    freqs.forEach(freq => {
-      const osc = audioCtx.createOscillator();
-      const gain = audioCtx.createGain();
-      osc.type = 'sine';
-      osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
-
-      gain.gain.setValueAtTime(0.02, audioCtx.currentTime);
-      osc.connect(gain);
-      gain.connect(masterGain);
-      osc.start();
-
-      ambientNodes.push(osc, gain);
-    });
-    ambientNodes.push(masterGain);
-  } catch (e) {
-    console.warn('Audio not available:', e);
-  }
-}
-
-function stopStillness() {
-  ambientNodes.forEach(node => {
-    try {
-      if (node.stop) node.stop();
-      if (node.disconnect) node.disconnect();
-    } catch (e) {}
-  });
-  ambientNodes = [];
-}
-
-// 3. Aphorism Rotator (Gather again)
-const aphorisms = [
-  "An experimental commons rooted in Iraqi modernism, radical tenderness, and an uncompromising refusal of tyranny.",
-  "No kings. No masters. Only each other.",
-  "Tenderness is a radical act. الحنان فعل مقاومة",
-  "To dilly dally with comrades over tea is to reclaim the hours stolen by tyranny."
-];
-let aphorismIdx = 0;
-
-function initGatherRotator() {
+// 3. Gather Again Control (Refreshes focus on the central caption statement)
+function initGatherControl() {
   const btn = document.getElementById('btn-gather');
-  const target = document.getElementById('caption-statement-text');
-  if (!btn || !target) return;
+  const caption = document.getElementById('caption-statement-text');
+  if (!btn || !caption) return;
 
   btn.addEventListener('click', () => {
-    aphorismIdx = (aphorismIdx + 1) % aphorisms.length;
-    target.style.opacity = '0';
+    caption.style.transition = 'opacity 0.2s ease';
+    caption.style.opacity = '0.3';
     setTimeout(() => {
-      target.textContent = aphorisms[aphorismIdx];
-      target.style.opacity = '1';
-    }, 150);
+      caption.style.opacity = '1';
+    }, 200);
   });
 }

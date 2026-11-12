@@ -1,24 +1,22 @@
-/* BKF Radical Folio — Exact Imported Design Stylesheet */
-@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap');
-
+/* BKF Radical Folio — Exact Imported Figma Design Stylesheet */
 :root {
-  --color-paper: #F6F4EE;
+  --color-paper: #EEEDE4;
   --color-paper-card: #FFFFFF;
-  --color-ink: #1C2520;
-  --color-ink-muted: #727B75;
+  --color-ink: #223022;
+  --color-ink-muted: #6E766D;
   --color-ink-light: #4A544F;
-  --color-gold: #D4972D;
+  --color-gold: #D79B29;
   --color-gold-hover: #BF8320;
-  --color-forest-dark: #18251E;
-  --color-rule: rgba(28, 37, 32, 0.14);
-  --color-rule-dark: rgba(28, 37, 32, 0.35);
+  --color-forest-dark: #233220;
+  --color-rule: rgba(34, 48, 34, 0.16);
+  --color-rule-dark: rgba(34, 48, 34, 0.4);
 
-  --font-serif-display: 'Playfair Display', Georgia, serif;
+  --font-serif-display: 'Newsreader', 'Playfair Display', Georgia, serif;
   --font-serif-reading: 'Newsreader', Georgia, serif;
   --font-arabic: 'Amiri', 'Traditional Arabic', serif;
   --font-mono: 'Space Mono', monospace;
 
-  --max-w-page: 1200px;
+  --max-w-page: 1140px;
 }
 
 * {
@@ -51,44 +49,54 @@ body {
   padding: 24px 32px 80px 32px;
 }
 
-/* 1. Folio Masthead */
+/* 1. Folio Masthead (Exact Figma: Seamless, no bottom border) */
 .masthead {
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--color-ink-muted);
-  padding: 12px 0;
-  border-bottom: 1px solid var(--color-rule);
-  margin-bottom: 32px;
+  padding: 8px 0;
+  margin-bottom: 28px;
 }
 
 /* 2. Hero Section */
 .hero {
-  padding-bottom: 40px;
+  padding-bottom: 32px;
 }
 
 .hero-eyebrow {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
   font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.28em;
+  font-size: 0.7rem;
+  letter-spacing: 0.24em;
   text-transform: uppercase;
   color: var(--color-ink-muted);
-  margin-bottom: 18px;
+  margin-bottom: 20px;
+}
+
+.eyebrow-line {
+  display: inline-block;
+  width: 40px;
+  height: 1px;
+  background-color: var(--color-rule-dark);
 }
 
 .hero-headline {
   text-align: center;
   font-family: var(--font-serif-display);
-  font-size: clamp(2.4rem, 4.8vw, 4.4rem);
-  font-weight: 700;
+  font-size: clamp(2.6rem, 5.2vw, 4.5rem);
+  font-weight: 500;
   line-height: 1.08;
   letter-spacing: -0.02em;
-  margin-bottom: 28px;
+  color: var(--color-ink);
+  margin-bottom: 24px;
 }
 
 .hero-headline .italic-line {
@@ -100,13 +108,13 @@ body {
   margin-top: 2px;
 }
 
-/* Hero Grid: Left marginalia, Center illustration, Right marginalia */
+/* 3-Column Hero Layout */
 .hero-layout {
   display: grid;
   grid-template-columns: 160px 1fr 160px;
-  gap: 24px;
+  gap: 20px;
   align-items: center;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
 
 .marginalia {
@@ -129,7 +137,7 @@ body {
   font-size: 0.68rem;
   color: var(--color-ink-muted);
   letter-spacing: 0.1em;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .marginalia-lines {
@@ -142,13 +150,13 @@ body {
 }
 
 .glyph-lightning {
-  font-size: 1.1rem;
   color: var(--color-ink);
+  display: inline-block;
 }
 
 .star-icon {
   color: var(--color-gold);
-  font-size: 1.25rem;
+  font-size: 1.3rem;
   margin-bottom: 4px;
   display: inline-block;
 }
@@ -178,13 +186,13 @@ body {
 /* Caption and statement */
 .hero-caption {
   text-align: center;
-  max-width: 720px;
-  margin: 0 auto 24px auto;
+  max-width: 760px;
+  margin: 0 auto 20px auto;
 }
 
 .caption-kicker {
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--color-ink-muted);
@@ -207,7 +215,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 14px;
+  gap: 12px;
   margin-bottom: 24px;
 }
 
@@ -219,7 +227,7 @@ body {
   letter-spacing: 0.08em;
   color: var(--color-ink-muted);
   cursor: pointer;
-  padding: 4px 8px;
+  padding: 4px 6px;
   transition: color 0.2s ease;
 }
 
@@ -227,9 +235,14 @@ body {
   color: var(--color-ink);
 }
 
-.btn-ctrl.active {
-  color: var(--color-gold);
+.ctrl-icon {
   font-weight: 700;
+  letter-spacing: -0.1em;
+  margin-right: 2px;
+}
+
+.ctrl-arrow {
+  display: inline-block;
 }
 
 .ctrl-sep {
@@ -251,24 +264,18 @@ body {
   align-items: center;
   gap: 6px;
   text-decoration: none;
-  margin-top: 12px;
+  margin-top: 10px;
   cursor: pointer;
 }
 
 .scroll-peek .arrow-down {
-  font-size: 1.1rem;
-  color: var(--color-ink-light);
-  animation: bounce-subtle 2s infinite ease-in-out;
-}
-
-@keyframes bounce-subtle {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(4px); }
+  font-size: 1.15rem;
+  color: var(--color-ink);
 }
 
 /* 3. Divider Bar */
 .divider-bar {
-  border-top: 1px solid var(--color-rule-dark);
+  border-top: 1.5px solid var(--color-ink);
   border-bottom: 1px solid var(--color-rule-dark);
   padding: 10px 0;
   display: flex;
@@ -279,24 +286,24 @@ body {
   letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--color-ink-muted);
-  margin: 32px 0 48px 0;
+  margin: 36px 0 44px 0;
 }
 
 .divider-bar .center-star {
   color: var(--color-gold);
-  font-size: 1.1rem;
+  font-size: 1.15rem;
 }
 
 /* 4. Section 01: The Radical Syllabus */
 .syllabus-section {
-  margin-bottom: 64px;
+  margin-bottom: 56px;
 }
 
 .syllabus-header {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  margin-bottom: 32px;
+  margin-bottom: 28px;
 }
 
 .syllabus-title-group {
@@ -305,7 +312,7 @@ body {
 
 .section-eyebrow {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.7rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--color-ink-muted);
@@ -314,9 +321,10 @@ body {
 
 .section-heading {
   font-family: var(--font-serif-display);
-  font-size: clamp(2.2rem, 4vw, 3.2rem);
-  font-weight: 700;
-  line-height: 1.1;
+  font-size: clamp(2.4rem, 4.2vw, 3.4rem);
+  font-weight: 500;
+  line-height: 1.08;
+  color: var(--color-ink);
 }
 
 .section-heading .gold-dot {
@@ -327,7 +335,7 @@ body {
   text-align: right;
   font-size: 1.05rem;
   line-height: 1.45;
-  color: var(--color-ink-light);
+  color: var(--color-ink);
   font-family: var(--font-serif-reading);
 }
 
@@ -348,27 +356,22 @@ body {
   text-align: right;
 }
 
-/* Syllabus Table Body / Rows */
+/* Rows Container */
 .syllabus-rows-container {
-  min-height: 480px;
+  min-height: 420px;
 }
 
 .syllabus-row {
   display: grid;
-  grid-template-columns: 40px 240px 1fr;
-  padding: 32px 0;
+  grid-template-columns: 44px 240px 1fr;
+  padding: 30px 0;
   border-bottom: 1px solid var(--color-rule);
   align-items: flex-start;
-  transition: background 0.2s ease;
-}
-
-.syllabus-row:hover {
-  background: rgba(28, 37, 32, 0.015);
 }
 
 .row-num {
   font-family: var(--font-serif-reading);
-  font-size: 1.1rem;
+  font-size: 1.15rem;
   color: var(--color-ink-muted);
 }
 
@@ -378,8 +381,8 @@ body {
 
 .author-name {
   font-family: var(--font-serif-display);
-  font-size: 1.18rem;
-  font-weight: 700;
+  font-size: 1.25rem;
+  font-weight: 600;
   color: var(--color-ink);
   margin-bottom: 2px;
 }
@@ -396,13 +399,13 @@ body {
 .work-title {
   font-family: var(--font-serif-reading);
   font-style: italic;
-  font-size: 1.02rem;
-  color: var(--color-ink-light);
+  font-size: 1.05rem;
+  color: var(--color-ink);
 }
 
 .work-arabic {
   font-family: var(--font-arabic);
-  font-size: 1.18rem;
+  font-size: 1.2rem;
   direction: rtl;
   color: var(--color-ink);
   margin-top: 4px;
@@ -418,7 +421,7 @@ body {
   line-height: 1.35;
   color: var(--color-ink);
   margin-bottom: 10px;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .note-text {
@@ -427,13 +430,37 @@ body {
   line-height: 1.5;
 }
 
+/* Leaf Curation Notice */
+.leaf-curation-notice {
+  padding: 60px 0;
+  text-align: center;
+  color: var(--color-ink-muted);
+}
+
+.curation-star {
+  color: var(--color-gold);
+  font-size: 1.5rem;
+  margin-bottom: 8px;
+}
+
+.curation-title {
+  font-family: var(--font-serif-display);
+  font-size: 1.3rem;
+  color: var(--color-ink);
+  margin-bottom: 6px;
+}
+
+.curation-sub {
+  font-size: 0.95rem;
+  font-style: italic;
+}
+
 /* Leaves Pagination Bar */
 .leaves-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 0;
-  border-bottom: 1px solid var(--color-rule);
+  padding: 18px 0;
   font-family: var(--font-mono);
   font-size: 0.72rem;
 }
@@ -450,7 +477,7 @@ body {
 
 .leaf-btn.disabled {
   opacity: 0.35;
-  cursor: not-allowed;
+  cursor: default;
 }
 
 .leaf-indicator {
@@ -478,8 +505,8 @@ body {
   font-size: 0.74rem;
   color: var(--color-ink-muted);
   cursor: pointer;
-  padding-bottom: 4px;
-  border-bottom: 1px solid transparent;
+  padding-bottom: 2px;
+  border-bottom: 1.5px solid transparent;
 }
 
 .leaf-num-btn.active {
@@ -493,7 +520,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 0;
+  padding: 14px 0 0 0;
+  border-top: 1px solid var(--color-rule);
   font-family: var(--font-mono);
   font-size: 0.68rem;
   letter-spacing: 0.14em;
@@ -504,21 +532,22 @@ body {
 .syllabus-footer .footer-note-italic {
   font-family: var(--font-serif-reading);
   font-style: italic;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   letter-spacing: normal;
   text-transform: none;
+  color: var(--color-ink-muted);
 }
 
 .syllabus-footer .footer-star {
   color: var(--color-gold);
 }
 
-/* 5. Section 02: The Conversation Continues */
+/* 5. Section 02: The Conversation Continues (Exact #233220 Forest Dark) */
 .conversation-section {
   background: var(--color-forest-dark);
   color: #FFFFFF;
-  border-radius: 2px;
-  padding: 40px 48px;
+  border-radius: 1px;
+  padding: 36px 44px;
   margin-top: 48px;
 }
 
@@ -530,28 +559,28 @@ body {
   font-size: 0.7rem;
   letter-spacing: 0.22em;
   text-transform: uppercase;
-  color: rgba(255, 255, 255, 0.6);
-  padding-bottom: 24px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
-  margin-bottom: 40px;
+  color: rgba(255, 255, 255, 0.65);
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+  margin-bottom: 36px;
 }
 
 .conv-header .gold-star {
   color: var(--color-gold);
-  font-size: 1.1rem;
+  font-size: 1.15rem;
 }
 
 .conv-body {
   display: grid;
   grid-template-columns: 1fr 340px;
-  gap: 48px;
+  gap: 40px;
   align-items: center;
 }
 
 .conv-title {
   font-family: var(--font-serif-display);
   font-size: clamp(2.4rem, 4.4vw, 3.8rem);
-  font-weight: 700;
+  font-weight: 500;
   line-height: 1.1;
   color: #FFFFFF;
 }
@@ -574,7 +603,7 @@ body {
 .conv-sub {
   font-size: 1.05rem;
   line-height: 1.45;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.9);
   font-family: var(--font-serif-reading);
 }
 
@@ -582,7 +611,7 @@ body {
   background: var(--color-paper-card);
   color: var(--color-ink);
   padding: 16px 20px;
-  border-radius: 2px;
+  border-radius: 1px;
   text-decoration: none;
   display: flex;
   justify-content: space-between;
@@ -592,19 +621,19 @@ body {
 
 .letter-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
 }
 
 .letter-title {
   font-family: var(--font-serif-display);
-  font-size: 1.15rem;
-  font-weight: 700;
+  font-size: 1.2rem;
+  font-weight: 600;
   color: var(--color-ink);
 }
 
 .letter-email {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: 0.74rem;
   color: var(--color-ink-muted);
 }
 
@@ -615,8 +644,9 @@ body {
 
 .conv-footnote {
   font-size: 0.88rem;
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(255, 255, 255, 0.6);
   font-style: italic;
+  font-family: var(--font-serif-reading);
 }
 
 /* Responsive Media Queries */
